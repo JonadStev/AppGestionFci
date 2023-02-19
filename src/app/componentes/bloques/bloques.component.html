@@ -1,0 +1,77 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p-card>
+                <ng-template pTemplate="header">
+                    <div class="pt-4 card-header">
+                        <h3>MANTENEDOR DE BLOQUES</h3>
+                    </div>
+                </ng-template>
+
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Nombre del bloque :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-align-justify"></i>
+                                    </span>
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtRol" class="col-sm-3 col-form-label">Estado del bloque:</label>
+                            <div class="col-sm-8">
+                                <p-dropdown [options]="estados" [(ngModel)]="selectedEstado" optionLabel="nombreEstado" optionValue="nombreEstado" placeholder="Seleccione el estado"></p-dropdown>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                <button class="mr-sm-2 p-button-warning" pButton type="button" iconPos="left" label="Guardar bloque" (click)="guardarEstado()"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+                
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Lista de bloques</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <p-table [value]="bloques" [paginator]="true" [rows]="5" selectionMode="single" dataKey="id" 
+                            (onRowSelect)="onRowSelectBloque($event)" (onRowUnselect)="onRowUnselectBloque($event)"
+                                [showCurrentPageReport]="true" responsiveLayout="scroll"
+                                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} bloques" [rowsPerPageOptions]="[5,10,15]">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Bloque</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-bloque>
+                                    <tr [pSelectableRow]="bloque">
+                                        <td>{{bloque.id}}</td>
+                                        <td>{{bloque.nombre}}</td>
+                                        <td>{{bloque.estado}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+
+            </p-card>
+        </div>
+    </div>
+</div>
+<p-toast position="top-center" key="myKey1"></p-toast>

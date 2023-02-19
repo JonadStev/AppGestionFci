@@ -1,0 +1,138 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p-card>
+                <ng-template pTemplate="header">
+                    <div class="pt-4 card-header">
+                        <h3>MANTENIMIENTO DE CUENTAS BOTS</h3>
+                    </div>
+                </ng-template>
+                
+                <div class="row">
+                    <div class="col-12">
+                        
+                        <div class="form-group row">
+                            <label for="txtBloque" class="col-sm-3 col-form-label">Bloque:</label>
+                            <div class="col-sm-8">
+                                <p-dropdown [options]="bloques" [(ngModel)]="selectedBloque" optionLabel="nombre" optionValue="id" placeholder="Seleccione el bloque que se desea dar mantenimiento"></p-dropdown>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="texFechaIni" class="col-sm-3 col-form-label">Fecha de incio :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-calendar"></i>
+                                    </span>
+                                    <p-calendar inputId="basic" [(ngModel)]="fechaIni"></p-calendar>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="texFechaFin" class="col-sm-3 col-form-label">Fecha final :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-calendar"></i>
+                                    </span>
+                                    <p-calendar inputId="basic" [(ngModel)]="fechaFin"></p-calendar>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="texDescripcion" class="col-sm-3 col-form-label">Descipción:</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-book"></i>
+                                    </span>
+                                    <input type="text" id="texDescripcion" pInputText [(ngModel)]="txtDescripcion"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtTiempo" class="col-sm-3 col-form-label">Tiempo de incubación :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-chevron-circle-left"></i>
+                                    </span>
+                                    <input type="text" id="txtTiempo" pInputText pInputText [(ngModel)]="txtTiempo"> 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="txtResponsable" class="col-sm-3 col-form-label">Responsable del mantenimiento:</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-user"></i>
+                                    </span>
+                                    <input type="text" id="txtResponsable" pInputText [(ngModel)]="txtResponsable"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <button class="mr-sm-2 p-button-warning" pButton type="button" iconPos="left" label="Guardar mantenimiento" (click)="guardarMantenimiento()"></button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button class="mr-sm-2 p-button-danger" pButton type="button" iconPos="left" label="Eliminar mantenimiento" (click)="eliminarMantenimiento()"></button>
+                            </div>
+                        </div>
+
+                    </div>  
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Mantenimientos realizados</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <p-table [value]="mantenimientos" [paginator]="true" [rows]="5" selectionMode="single" dataKey="id" 
+                            (onRowSelect)="onRowSelectMan($event)" (onRowUnselect)="onRowUnselectMan($event)"
+                                [showCurrentPageReport]="true" responsiveLayout="scroll"
+                                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} mantenimientos" [rowsPerPageOptions]="[5,10,15]">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Bloque</th>
+                                        <th>Fecha inicial</th>
+                                        <th>Fecha final</th>
+                                        <th>Descripción</th>
+                                        <th>Tiempo</th>
+                                        <th>Responsable</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-mantenimiento>
+                                    <tr [pSelectableRow]="mantenimiento">
+                                        <td>{{mantenimiento.id}}</td>
+                                        <td>{{mantenimiento.bloque}}</td>
+                                        <td>{{mantenimiento.fechaInicio}}</td>
+                                        <td>{{mantenimiento.fechaFin}}</td>
+                                        <td>{{mantenimiento.descripcion}}</td>
+                                        <td>{{mantenimiento.tiempo}}</td>
+                                        <td>{{mantenimiento.responsable}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+
+            </p-card>
+        </div>
+    </div>
+</div>
+<p-toast position="top-center" key="myKey1"></p-toast>

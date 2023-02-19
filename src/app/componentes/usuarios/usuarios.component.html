@@ -1,0 +1,135 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p-card>
+                <ng-template pTemplate="header">
+                    <div class="pt-4 card-header">
+                        <h3>MANTENEDOR DE USUARIOS</h3>
+                    </div>
+                </ng-template>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Nombres :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-user"></i>
+                                    </span>
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = "usuario.nombre"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtApellido" class="col-sm-3 col-form-label">Apellidos :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-user"></i>
+                                    </span>
+                                    <input type="text" id="txtApellido" pInputText [(ngModel)] = "usuario.apellido"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtCorreo" class="col-sm-3 col-form-label">Correo :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-envelope"></i>
+                                    </span>
+                                    <input type="text" id="txtCorreo" pInputText [(ngModel)] = "usuario.email"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtTelefono" class="col-sm-3 col-form-label">Teléfono :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-phone"></i>
+                                    </span>
+                                    <input type="text" id="txtTelefono" pInputText [(ngModel)] = "usuario.telefono"> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtPassword" class="col-sm-3 col-form-label">Contraseña :</label>
+                            <div class="col-sm-8">
+                                <p-password [disabled]="btnPasswordDisabled" [toggleMask]="true" [feedback]="false" [(ngModel)]="usuario.password"></p-password>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtPerfil" class="col-sm-3 col-form-label">Perfil : </label>
+                            <div class="col-sm-8">
+                                <p-dropdown [options]="roles" [(ngModel)]="selectedRol" optionLabel="nombre" optionValue="nombre" placeholder="Seleccione el perfil"></p-dropdown>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtEstado" class="col-sm-3 col-form-label">Estado:</label>
+                            <div class="col-sm-8">
+                                <p-dropdown [options]="estados" [(ngModel)]="selectedEstadoUsuario" optionLabel="nombreEstado" optionValue="nombreEstado" placeholder="Seleccione el estado"></p-dropdown>
+                            </div>
+                        </div>  
+
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                <button class="mr-sm-2 p-button-warning" pButton type="button" iconPos="left" label="Guardar usuario" (click)="guardarUsuario()"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Lista de usuarios</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <p-table [value]="usuarios" [paginator]="true" [rows]="5" selectionMode="single" dataKey="id" 
+                            (onRowSelect)="onRowSelectUser($event)" (onRowUnselect)="onRowUnselectUser($event)"
+                                [showCurrentPageReport]="true" responsiveLayout="scroll"
+                                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} usuario" [rowsPerPageOptions]="[5,10,15]">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>Correo</th>
+                                        <th>Teléfono</th>
+                                        <th>Contraseña</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-usuario>
+                                    <tr [pSelectableRow]="usuario">
+                                        <td>{{usuario.id}}</td>
+                                        <td>{{usuario.nombre}}</td>
+                                        <td>{{usuario.apellido}}</td>
+                                        <td>{{usuario.email}}</td>
+                                        <td>{{usuario.telefono}}</td>
+                                        <td>{{usuario.password}}</td>
+                                        <td>{{usuario.estado}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+
+            </p-card>
+        </div>
+    </div>
+</div>
+<p-toast position="top-center" key="myKey1"></p-toast>
