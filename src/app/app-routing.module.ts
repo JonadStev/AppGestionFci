@@ -20,6 +20,12 @@ import { CarrerasComponent } from './componentes/gestion/carreras/carreras.compo
 import { EstadosComponent } from './componentes/gestion/estados/estados.component';
 import { UnescoComponent } from './componentes/gestion/unesco/unesco.component';
 import { ResetPasswordComponent } from './componentes/ayuda/reset-password/reset-password.component';
+import { AcreditacionComponent } from './componentes/procesos/acreditacion/cargaAcreditacion/acreditacion/acreditacion.component';
+import { PonenciasComponent } from './componentes/acreditacion/ponencias/ponencias.component';
+import { LibroComponent } from './componentes/procesos/acreditacion/libro/libro/libro.component';
+import { LibrosComponent } from './componentes/acreditacion/libros/libros.component';
+import { CapituloLibrosComponent } from './componentes/acreditacion/capitulo-libros/capitulo-libros.component';
+import { ProductoComponent } from './componentes/gestion/producto/producto.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,10 +35,15 @@ const routes: Routes = [
   { path: 'gestion/lineas', component: LineasComponent },
   { path: 'gestion/sublineas', component: SublineasComponent },
   { path: 'gestion/carreras', component: CarrerasComponent },
+  { path: 'gestion/productos', component: ProductoComponent },
   { path: 'gestion/estados', component: EstadosComponent },
   { path: 'gestion/unesco', component: UnescoComponent },
   { path: 'ayuda/cambio-contrasenia', component: ResetPasswordComponent },
+  { path: 'acreditacion/cargar', component: AcreditacionComponent },
   { path: 'acreditacion/articulos', component: ArticulosComponent },
+  { path: 'acreditacion/ponencias', component: PonenciasComponent },
+  { path: 'acreditacion/libro', component: LibrosComponent },
+  { path: 'acreditacion/capitulo-libro', component: CapituloLibrosComponent },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [ProdGuardService], data: { expectedRol: ['supervisor'] } },
   { path: 'cuentas/registro', component: RegistroComponent, canActivate: [ProdGuardService], data: { expectedRol: ['supervisor'] } },
   { path: 'cuentas/mantenimiento', component: MantenimientoComponent, canActivate: [ProdGuardService], data: { expectedRol: ['mantenimiento'] } },

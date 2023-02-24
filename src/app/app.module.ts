@@ -26,6 +26,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { DividerModule } from 'primeng/divider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
@@ -54,6 +55,11 @@ import { EstadosComponent } from './componentes/gestion/estados/estados.componen
 import { UnescoComponent } from './componentes/gestion/unesco/unesco.component';
 import { AyudaComponent } from './componentes/ayuda/ayuda/ayuda.component';
 import { ResetPasswordComponent } from './componentes/ayuda/reset-password/reset-password.component';
+import { AcreditacionComponent } from './componentes/procesos/acreditacion/cargaAcreditacion/acreditacion/acreditacion.component';
+import { PronenciasComponent } from './componentes/procesos/acreditacion/ponencias/pronencias/pronencias.component';
+import { LibroComponent } from './componentes/procesos/acreditacion/libro/libro/libro.component';
+import { CapituloLibroComponent } from './componentes/procesos/acreditacion/capituloLibro/capitulo-libro/capitulo-libro.component';
+import { ProductoComponent } from './componentes/gestion/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +88,12 @@ import { ResetPasswordComponent } from './componentes/ayuda/reset-password/reset
     EstadosComponent,
     UnescoComponent,
     AyudaComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AcreditacionComponent,
+    PronenciasComponent,
+    LibroComponent,
+    CapituloLibroComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +124,8 @@ import { ResetPasswordComponent } from './componentes/ayuda/reset-password/reset
     ChartModule,
     InputTextareaModule,
     PasswordModule,
-    MultiSelectModule
+    MultiSelectModule,
+    DividerModule
   ],
   providers: [interceptorProvider, MessageService],
   bootstrap: [AppComponent]

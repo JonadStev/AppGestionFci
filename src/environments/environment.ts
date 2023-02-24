@@ -11,6 +11,9 @@ export const environment = {
   gestionSubLineaUrl: 'http://localhost:8080/gestion/sublinea/',
   gestionUnescoUrl: 'http://localhost:8080/gestion/unesco/',
   gestionCarreraUrl: 'http://localhost:8080/gestion/carrera/',
+  gestionProductoUrl: 'http://localhost:8080/gestion/producto/',
+
+  procesosProyecto: 'http://localhost:8080/gestion/proyecto/',
 
   cuentaUrl: 'http://localhost:8080/cuenta/',
   bloqueUrl: 'http://localhost:8080/bloque/',

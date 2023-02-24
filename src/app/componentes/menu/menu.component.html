@@ -12,10 +12,9 @@
             Gestión
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" routerLink="/gestion/docente">Docentes</a>
-            <a class="dropdown-item" href="#" routerLink="/docente">Usuarios</a>
+            <a class="dropdown-item" href="#" routerLink="/gestion/docente">Usuarios</a>
             <a class="dropdown-item" href="#" routerLink="/gestion/estados">Estados</a>
-            <a class="dropdown-item" href="#" routerLink="">Productos</a>
+            <a class="dropdown-item" href="#" routerLink="/gestion/productos">Productos</a>
             <a class="dropdown-item" href="#" routerLink="/gestion/unesco">Unesco</a>
             <a class="dropdown-item" href="#" routerLink="/gestion/carreras">Carreras</a>
             <a class="dropdown-item" href="#" routerLink="/gestion/lineas">Lineas de investigacion</a>
@@ -40,16 +39,19 @@
               </a>
               <ul class="dropdown-menu dropdown-submenu">
                 <li>
+                  <a class="dropdown-item" routerLink="/acreditacion/cargar">Cargar información</a>
+                </li>
+                <li>
                   <a class="dropdown-item" routerLink="/acreditacion/articulos">Artículos</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Ponencias</a>
+                  <a class="dropdown-item" routerLink="/acreditacion/ponencias">Ponencias</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Libros</a>
+                  <a class="dropdown-item" routerLink="/acreditacion/libro">Libros</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">Capítulos de libro</a>
+                  <a class="dropdown-item" routerLink="/acreditacion/capitulo-libro">Capítulos de libro</a>
                 </li>
               </ul>
             </li>
@@ -106,7 +108,7 @@
       <div class="field col-12 md:col-12">
         <span class="p-float-label">
             <input type="text" id="username" pInputText [(ngModel)]="username"> 
-            <label for="username">Correo de usuario</label>
+            <label for="username">Usuario</label>
         </span>
       </div>
   

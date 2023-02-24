@@ -9,4 +9,5 @@ export interface UsuarioDocenteDto {
     estado?: string;
     carrera?: number;
     roles?: string[];
+    nombreCompleto?: string;
 }

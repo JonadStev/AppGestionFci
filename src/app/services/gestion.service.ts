@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { CarreraDto } from '../modelos/gestion/carrera';
 import { EstadoDto } from '../modelos/gestion/estado';
 import { LineaDto } from '../modelos/gestion/linea';
+import { ProductoDto } from '../modelos/gestion/producto';
 import { SubLineaDto } from '../modelos/gestion/subLinea';
 import { UnescoDto } from '../modelos/gestion/unesco';
 import { UsuarioDocenteDto } from '../modelos/gestion/usuarioDocente';
@@ -21,6 +22,7 @@ export class GestionService {
   gestionSubLineaUrl = environment.gestionSubLineaUrl;
   gestionUnescoUrl = environment.gestionUnescoUrl;
   gestionCarreraUrl = environment.gestionCarreraUrl;
+  productoUrl = environment.gestionProductoUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -90,6 +92,15 @@ export class GestionService {
 
   public guardarCarrera(carrera: CarreraDto): Observable<CarreraDto> {
     return this.http.post<CarreraDto>(this.gestionCarreraUrl + 'save', carrera);
+  }
+
+  //Producto
+  public getProductos(): Observable<ProductoDto[]> {
+    return this.http.get<ProductoDto[]>(this.productoUrl + 'all');
+  }
+
+  public guardarProducto(producto: ProductoDto): Observable<ProductoDto> {
+    return this.http.post<ProductoDto>(this.productoUrl + 'save', producto);
   }
 
 }
