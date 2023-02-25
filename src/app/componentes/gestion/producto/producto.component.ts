@@ -14,9 +14,9 @@ import { ProcesosService } from 'src/app/services/procesos.service';
 })
 export class ProductoComponent implements OnInit {
 
-  estados: any[] = [{ id: 1, nombreEstado: 'ACTIVO' }, { id: 2, nombreEstado: 'INACTIVO' }];
   selectedEstado?: string = '';
 
+  estados: EstadoDto[] = [];
 
   directores: UsuarioDocenteDto[] = [];
   selectedDirector: UsuarioDocenteDto = {};
@@ -54,6 +54,9 @@ export class ProductoComponent implements OnInit {
     this.gestionService.getDirectores().subscribe(data => {
       this.directores = data;
     });
+    this.gestionService.getEstadosActivos().subscribe(data => {
+      this.estados = data;
+    });
   }
 
   llenarProductos() {
@@ -67,6 +70,7 @@ export class ProductoComponent implements OnInit {
     this.fechaInicio = this.convertStringToDate(event.value.fechaInicio);
     this.fechaFin = this.convertStringToDate(event.value.fechaFin);
     this.producto.nombreProyecto = this.selectedProyecto.nombre;
+    console.log(this.fechaInicio.toISOString());
   }
 
   guardarProducto() {

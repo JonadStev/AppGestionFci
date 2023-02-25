@@ -13,29 +13,24 @@
                     <div class="col-12">
 
                         <div class="form-group row">
-                            <label for="txtNombre" class="col-sm-3 col-form-label">ID Proyecto:</label>
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Id proyecto FCI:</label>
                             <div class="col-sm-8">
-                                <div class="p-inputgroup" style="width: 75%;">
-                                    <span class="p-inputgroup-addon">
-                                        <i class="pi pi-align-justify"></i>
-                                    </span>
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
-                                </div>
+                                <p-dropdown [options]="proyectos" [(ngModel)]="selectedProyecto" optionLabel="idProyecto" placeholder="Seleccione proyecto FCI ..." (onChange)="seleccionarProyecto($event)"></p-dropdown>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="txtNombre" class="col-sm-3 col-form-label">Nombre Proyecto:</label>
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Nombre proyecto FCI:</label>
                             <div class="col-sm-8">
                                 <div class="p-inputgroup" style="width: 75%;">
                                     <span class="p-inputgroup-addon">
                                         <i class="pi pi-align-justify"></i>
                                     </span>
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'this.horas.nombreProyecto'> 
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group row">
                             <label for="txtNombre" class="col-sm-3 col-form-label">Convocatoria:</label>
                             <div class="col-sm-8">
@@ -43,15 +38,15 @@
                                     <span class="p-inputgroup-addon">
                                         <i class="pi pi-align-justify"></i>
                                     </span>
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'this.horas.convocatoria'> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="txtRol" class="col-sm-3 col-form-label">Director FCI:</label>
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Director FCI:</label>
                             <div class="col-sm-8">
-                                <p-dropdown [options]="estados" [(ngModel)]="selectedEstado" optionLabel="nombreEstado" optionValue="nombreEstado" placeholder="Seleccione ..."></p-dropdown>
+                                <p-dropdown [options]="directores" [(ngModel)]="selectedDirector" optionLabel="nombreCompleto" placeholder="Seleccione director ..."></p-dropdown>
                             </div>
                         </div>
 
@@ -62,7 +57,7 @@
                                     <span class="p-inputgroup-addon">
                                         <i class="pi pi-align-justify"></i>
                                     </span>
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'this.horas.informe'> 
                                 </div>
                             </div>
                         </div>
@@ -74,7 +69,7 @@
                         <div class="form-group row">
                             <label for="txtRol" class="col-sm-3 col-form-label">Investigador:</label>
                             <div class="col-sm-8">
-                                <p-dropdown [options]="estados" [(ngModel)]="selectedEstado" optionLabel="nombreEstado" optionValue="nombreEstado" placeholder="Seleccione un investigador..."></p-dropdown>
+                                <p-dropdown [options]="investigadores" [(ngModel)]="selectedInvestigador" optionLabel="nombreCompleto" placeholder="Seleccione un investigador..."></p-dropdown>
                             </div>
                         </div>
 
@@ -84,7 +79,7 @@
                                     <label for="txtNombre" class="col-sm-6 col-form-label">Requiere horas:</label>
                                     <div class="col-sm-6">
                                         <div class="p-inputgroup">
-                                            <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                            <input type="text" id="txtNombre" pInputText [(ngModel)] = 'detalleHoras.reqHoras'> 
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +89,8 @@
                                     <label for="txtNombre" class="col-sm-6 col-form-label">Horas totales de investigacion asignada:</label>
                                     <div class="col-sm-6">
                                         <div class="p-inputgroup">
-                                            <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                            <p-inputNumber [(ngModel)]="detalleHoras.horasTotalInvestigacionAsignada" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                            </p-inputNumber>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +103,8 @@
                                     <label for="txtNombre" class="col-sm-6 col-form-label">Horas de investigacion asignadas a proyectos:</label>
                                     <div class="col-sm-6">
                                         <div class="p-inputgroup">
-                                            <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                            <p-inputNumber [(ngModel)]="detalleHoras.horasInvestigacionAsignadaProyecto" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                            </p-inputNumber>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +114,8 @@
                                     <label for="txtNombre" class="col-sm-6 col-form-label">Horas de investigacion asignadas a titulación:</label>
                                     <div class="col-sm-6">
                                         <div class="p-inputgroup">
-                                            <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                            <p-inputNumber [(ngModel)]="detalleHoras.horasInvestigacionAsignadaTitulacion" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                            </p-inputNumber>
                                         </div>
                                     </div>
                                 </div>
@@ -128,22 +126,23 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Número de trabajos de titulación máximos a asignar vinculados a proyectos de investigación:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtNombre'> 
+                                    <p-inputNumber [(ngModel)]="detalleHoras.numeroTrabajoTitulacion" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-sm-8">
-                                <button class="mr-sm-2 p-button-primary" pButton type="button" iconPos="left" label="Agregar investigador" ></button>
+                                <button class="mr-sm-2 p-button-primary" pButton type="button" iconPos="left" label="Agregar investigador" (click)="agregarInvestigador()"></button>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
-                                    <p-table [value]="bloques" [paginator]="false" [rows]="5" selectionMode="single" dataKey="id" 
-                                    (onRowSelect)="onRowSelectBloque($event)" (onRowUnselect)="onRowUnselectBloque($event)"
+                                    <p-table [value]="detallesHoras" [paginator]="false" [rows]="5" selectionMode="single" dataKey="id" 
+                                    (onRowSelect)="onRowSelectInvestigador($event)" (onRowUnselect)="onRowUnselectInvestigador($event)"
                                         [showCurrentPageReport]="true" responsiveLayout="scroll"
                                         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} datos" [rowsPerPageOptions]="[5,10,15]">
                                         <ng-template pTemplate="header">
@@ -156,14 +155,14 @@
                                                 <th>Num. proyectos de investigacion</th>
                                             </tr>
                                         </ng-template>
-                                        <ng-template pTemplate="body" let-bloque>
-                                            <tr [pSelectableRow]="bloque">
-                                                <td>{{bloque.id}}</td>
-                                                <td>{{bloque.nombre}}</td>
-                                                <td>{{bloque.estado}}</td>
-                                                <td>{{bloque.estado}}</td>
-                                                <td>{{bloque.estado}}</td>
-                                                <td>{{bloque.estado}}</td>
+                                        <ng-template pTemplate="body" let-detalle>
+                                            <tr [pSelectableRow]="detalle">
+                                                <td>{{detalle.investigador.nombreCompleto}}</td>
+                                                <td>{{detalle.reqHoras}}</td>
+                                                <td>{{detalle.horasTotalInvestigacionAsignada}}</td>
+                                                <td>{{detalle.horasInvestigacionAsignadaProyecto}}</td>
+                                                <td>{{detalle.horasInvestigacionAsignadaTitulacion}}</td>
+                                                <td>{{detalle.numeroTrabajoTitulacion}}</td>
                                             </tr>
                                         </ng-template>
                                     </p-table>
@@ -174,7 +173,7 @@
 
                         <div class="form-group row">
                             <div class="col-sm-8">
-                                <button class="mr-sm-2 p-button-primary" pButton type="button" iconPos="left" label="Guardar asignacion de horas" (click)="guardarEstado()"></button>
+                                <button class="mr-sm-2 p-button-primary" pButton type="button" iconPos="left" label="Guardar asignacion de horas" (click)="guardarHoras()"></button>
                             </div>
                         </div>
                     </div>
@@ -189,8 +188,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <p-table [value]="bloques" [paginator]="true" [rows]="5" selectionMode="single" dataKey="id" 
-                            (onRowSelect)="onRowSelectBloque($event)" (onRowUnselect)="onRowUnselectBloque($event)"
+                            <p-table [value]="listHoras" [paginator]="true" [rows]="5" selectionMode="single" dataKey="id" 
+                            (onRowSelect)="onRowSelectInvestigador($event)" (onRowUnselect)="onRowUnselectInvestigador($event)"
                                 [showCurrentPageReport]="true" responsiveLayout="scroll"
                                 currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros" [rowsPerPageOptions]="[5,10,15]">
                                 <ng-template pTemplate="header">
@@ -201,12 +200,12 @@
                                         <th>Informe</th>
                                     </tr>
                                 </ng-template>
-                                <ng-template pTemplate="body" let-bloque>
-                                    <tr [pSelectableRow]="bloque">
-                                        <td>{{bloque.id}}</td>
-                                        <td>{{bloque.nombre}}</td>
-                                        <td>{{bloque.estado}}</td>
-                                        <td>{{bloque.estado}}</td>
+                                <ng-template pTemplate="body" let-horas>
+                                    <tr [pSelectableRow]="horas">
+                                        <td>{{horas.id}}</td>
+                                        <td>{{horas.nombreProyecto}}</td>
+                                        <td>{{horas.convocatoria}}</td>
+                                        <td>{{horas.informe}}</td>
                                     </tr>
                                 </ng-template>
                             </p-table>

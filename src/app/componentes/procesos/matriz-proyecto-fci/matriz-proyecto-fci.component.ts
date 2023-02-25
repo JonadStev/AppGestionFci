@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { BloqueDto } from 'src/app/modelos/bloque';
+import { EstadoDto } from 'src/app/modelos/gestion/estado';
 import { UsuarioDocenteDto } from 'src/app/modelos/gestion/usuarioDocente';
 import { ProyectoDto } from 'src/app/modelos/procesos/proyecto';
 import { GestionService } from 'src/app/services/gestion.service';
@@ -13,7 +14,7 @@ import { ProcesosService } from 'src/app/services/procesos.service';
 })
 export class MatrizProyectoFciComponent implements OnInit {
 
-  estados: any[] = [{ id: 1, nombreEstado: 'ACTIVO' }, { id: 2, nombreEstado: 'INACTIVO' }];
+  estados: EstadoDto[] = [];
   selectedEstado?: string = '';
 
   directores: UsuarioDocenteDto[] = [];
@@ -41,6 +42,9 @@ export class MatrizProyectoFciComponent implements OnInit {
     });
     this.gestionService.getInvestigadores().subscribe(data => {
       this.investigadores = data;
+    });
+    this.gestionService.getEstadosActivos().subscribe(data => {
+      this.estados = data;
     });
   }
 

@@ -27,6 +27,7 @@ import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DividerModule } from 'primeng/divider';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
@@ -125,7 +126,8 @@ import { ProductoComponent } from './componentes/gestion/producto/producto.compo
     InputTextareaModule,
     PasswordModule,
     MultiSelectModule,
-    DividerModule
+    DividerModule,
+    InputNumberModule
   ],
   providers: [interceptorProvider, MessageService],
   bootstrap: [AppComponent]

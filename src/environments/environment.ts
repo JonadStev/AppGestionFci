@@ -14,6 +14,7 @@ export const environment = {
   gestionProductoUrl: 'http://localhost:8080/gestion/producto/',
 
   procesosProyecto: 'http://localhost:8080/gestion/proyecto/',
+  procesosHoras: 'http://localhost:8080/gestion/horas/',
 
   cuentaUrl: 'http://localhost:8080/cuenta/',
   bloqueUrl: 'http://localhost:8080/bloque/',

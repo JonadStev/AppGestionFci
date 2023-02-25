@@ -54,6 +54,10 @@ export class GestionService {
     return this.http.get<EstadoDto[]>(this.gestionEstadoUrl + 'all');
   }
 
+  public getEstadosActivos(): Observable<EstadoDto[]> {
+    return this.http.get<EstadoDto[]>(this.gestionEstadoUrl + 'all/ACTIVO');
+  }
+
   public guardarEstado(estado: EstadoDto): Observable<EstadoDto> {
     return this.http.post<EstadoDto>(this.gestionEstadoUrl + 'save', estado);
   }
