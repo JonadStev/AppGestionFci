@@ -15,6 +15,7 @@ export const environment = {
 
   procesosProyecto: 'http://localhost:8080/gestion/proyecto/',
   procesosHoras: 'http://localhost:8080/gestion/horas/',
+  procesosAcreditacion: 'http://localhost:8080/gestion/acreditacion/',
 
   cuentaUrl: 'http://localhost:8080/cuenta/',
   bloqueUrl: 'http://localhost:8080/bloque/',

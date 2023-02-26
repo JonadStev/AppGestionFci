@@ -189,7 +189,7 @@
                     <div class="col-12">
                         <div class="card">
                             <p-table [value]="listHoras" [paginator]="true" [rows]="5" selectionMode="single" dataKey="id" 
-                            (onRowSelect)="onRowSelectInvestigador($event)" (onRowUnselect)="onRowUnselectInvestigador($event)"
+                            (onRowSelect)="onRowSelectHoras($event)" (onRowUnselect)="onRowUnselectHoras($event)"
                                 [showCurrentPageReport]="true" responsiveLayout="scroll"
                                 currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros" [rowsPerPageOptions]="[5,10,15]">
                                 <ng-template pTemplate="header">

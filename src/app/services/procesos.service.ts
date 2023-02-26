@@ -12,6 +12,7 @@ export class ProcesosService {
 
   proyectoUrl = environment.procesosProyecto;
   horasUrl = environment.procesosHoras;
+  acreditacionUrl = environment.procesosAcreditacion;
 
   constructor(private http: HttpClient) { }
 
@@ -35,6 +36,11 @@ export class ProcesosService {
 
   public guardarHoras(horas: HorasDto): Observable<HorasDto> {
     return this.http.post<HorasDto>(this.horasUrl + 'save', horas);
+  }
+
+  //ACREDITACION
+  public cargarExcel(formData: FormData): Observable<any> {
+    return this.http.post<any>(this.acreditacionUrl + 'excel', formData);
   }
 
 }
