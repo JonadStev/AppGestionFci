@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { BloqueDto } from 'src/app/modelos/bloque';
+import { LoginUsuario } from 'src/app/modelos/login';
+import { GestionService } from 'src/app/services/gestion.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -8,16 +11,12 @@ import { BloqueDto } from 'src/app/modelos/bloque';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  estados: any[] = [{ id: 1, nombreEstado: 'ACTIVO' }, { id: 2, nombreEstado: 'INACTIVO' }];
-  selectedEstado?: string = '';
+  txtNombreUsuario?: string;
+  txtNewPassword?: string;
 
-  bloques: BloqueDto[] = [];
+  loginUsuario: LoginUsuario = {};
 
-  bloque: BloqueDto = {};
-
-  txtNombre?: string;
-
-  constructor() { }
+  constructor(private messageService: MessageService, private gestionService: GestionService) { }
 
   ngOnInit(): void {
   }
@@ -27,31 +26,28 @@ export class ResetPasswordComponent implements OnInit {
 
   }
 
-  guardarEstado() {
-
-  }
-
-
-  onRowSelectBloque(event: any) {
-    this.bloque = event.data
-    this.selectedEstado = event.data.estado;
-    this.txtNombre = this.bloque.nombre;
-  }
-
-  onRowUnselectBloque(event: any) {
-    this.limpar();
+  cambiarContrasenia() {
+    if (!this.validarCampos()) {
+      this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Alerta', detail: 'Los campos son obligatorios.' });
+      return;
+    }
+    this.loginUsuario.nombreUsuario = this.txtNombreUsuario;
+    this.loginUsuario.password = this.txtNewPassword;
+    this.gestionService.resetearContrasenia(this.loginUsuario).subscribe(data => {
+      this.messageService.add({ key: 'myKey1', severity: 'success', summary: 'Información', detail: 'Se ha reestablecido su contraseña.' });
+      this.limpar();
+    });
   }
 
   limpar() {
-    this.bloque = {};
-    this.selectedEstado = '';
-    this.txtNombre = '';
+    this.txtNombreUsuario = '';
+    this.txtNewPassword = '';
   }
 
   validarCampos(): boolean {
     if (
-      this.txtNombre === '' || this.txtNombre === null || this.txtNombre === undefined ||
-      this.selectedEstado === '' || this.selectedEstado === null || this.selectedEstado === undefined
+      this.txtNombreUsuario === '' || this.txtNombreUsuario === null || this.txtNombreUsuario === undefined ||
+      this.txtNewPassword === '' || this.txtNewPassword === null || this.txtNewPassword === undefined
     ) {
       return false;
     }

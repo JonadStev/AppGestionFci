@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { BloqueDto } from 'src/app/modelos/bloque';
 import { EstadoDto } from 'src/app/modelos/gestion/estado';
 import { UsuarioDocenteDto } from 'src/app/modelos/gestion/usuarioDocente';
 import { ProyectoDto } from 'src/app/modelos/procesos/proyecto';

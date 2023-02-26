@@ -26,6 +26,7 @@ import { LibroComponent } from './componentes/procesos/acreditacion/libro/libro/
 import { LibrosComponent } from './componentes/acreditacion/libros/libros.component';
 import { CapituloLibrosComponent } from './componentes/acreditacion/capitulo-libros/capitulo-libros.component';
 import { ProductoComponent } from './componentes/gestion/producto/producto.component';
+import { AyudaComponent } from './componentes/ayuda/ayuda/ayuda.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'gestion/estados', component: EstadosComponent },
   { path: 'gestion/unesco', component: UnescoComponent },
   { path: 'ayuda/cambio-contrasenia', component: ResetPasswordComponent },
+  { path: 'ayuda/acerdaDe', component: AyudaComponent },
   { path: 'acreditacion/cargar', component: AcreditacionComponent },
   { path: 'acreditacion/articulos', component: ArticulosComponent },
   { path: 'acreditacion/ponencias', component: PonenciasComponent },

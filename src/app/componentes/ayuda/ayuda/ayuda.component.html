@@ -1,1 +1,40 @@
-<p>ayuda works!</p>
+<app-menu></app-menu>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p-card>
+                <ng-template pTemplate="header">
+                    <div class="pt-4 card-header">
+                        <h3>Bienvenido al sistema</h3>
+                    </div>
+                </ng-template>
+
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Encabezado de la página -->
+                        <h2 class="text-center">Ayuda para el usuario</h2>
+
+                        <!-- Mensaje de bienvenida -->
+                        <p>Bienvenido a la pantalla de Ayuda del sistema. Aquí podrás encontrar información sobre cómo utilizar las diferentes funcionalidades del sistema.</p>
+
+                        <!-- Sección de opciones de ayuda -->
+                        <p-listbox [options]="this.opcionesAyuda" [(ngModel)]="opcionSeleccionada" optionLabel="label"></p-listbox>
+
+                        <!-- Sección de contenido de ayuda -->
+                        <div *ngIf="opcionSeleccionada">
+                        <p-card>
+                            <h5>{{opcionSeleccionada.label}}</h5>
+                            <p>{{opcionSeleccionada.descripcion}}</p>
+                        </p-card>
+                        </div>
+
+                        <!-- Instrucciones generales -->
+                        <p>Selecciona la opción que necesitas ayuda y sigue las instrucciones en la pantalla. Si necesitas más ayuda, puedes consultar el manual del usuario o ponerte en contacto con nuestro servicio de soporte técnico.</p>
+
+                    </div>
+                </div>       
+
+            </p-card>
+        </div>
+    </div>
+</div>

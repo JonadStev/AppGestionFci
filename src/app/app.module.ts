@@ -29,6 +29,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { DividerModule } from 'primeng/divider';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { FileUploadModule } from 'primeng/fileupload';
+import { AccordionModule } from 'primeng/accordion';
+import { ListboxModule } from 'primeng/listbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
@@ -129,7 +131,9 @@ import { ProductoComponent } from './componentes/gestion/producto/producto.compo
     MultiSelectModule,
     DividerModule,
     InputNumberModule,
-    FileUploadModule
+    FileUploadModule,
+    AccordionModule,
+    ListboxModule
   ],
   providers: [interceptorProvider, MessageService],
   bootstrap: [AppComponent]
