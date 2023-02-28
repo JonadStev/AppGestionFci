@@ -22,7 +22,7 @@ export class ProcesosService {
   }
 
   public getProyectosActivos(): Observable<ProyectoDto[]> {
-    return this.http.get<ProyectoDto[]>(this.proyectoUrl + 'all/ACTIVO');
+    return this.http.get<ProyectoDto[]>(this.proyectoUrl + 'all');
   }
 
   public guardarProyecto(proyecto: ProyectoDto): Observable<ProyectoDto> {

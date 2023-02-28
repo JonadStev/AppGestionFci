@@ -97,7 +97,8 @@ export class ProductoComponent implements OnInit {
       this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Alerta', detail: 'Los campos son obligatorios.' });
       return;
     }
-
+    //console.log(this.producto);
+    //return;
     this.gestionService.guardarProducto(this.producto).subscribe(data => {
       this.messageService.add({ key: 'myKey1', severity: 'success', summary: 'Información', detail: 'Registro guardado exitosamente.' });
       this.llenarSelects();
