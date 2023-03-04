@@ -76,6 +76,10 @@ export class GestionService {
     return this.http.get<SubLineaDto[]>(this.gestionSubLineaUrl + 'all');
   }
 
+  public getSubLineasByLinea(linea: number): Observable<SubLineaDto[]> {
+    return this.http.get<SubLineaDto[]>(this.gestionSubLineaUrl + 'all/' + linea);
+  }
+
   public guardarSubLinea(subLinea: SubLineaDto): Observable<SubLineaDto> {
     return this.http.post<SubLineaDto>(this.gestionSubLineaUrl + 'save', subLinea);
   }

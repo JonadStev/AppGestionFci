@@ -15,7 +15,7 @@
                         <div class="form-group row">
                             <label for="txtNombre" class="col-sm-3 col-form-label">Id proyecto FCI:</label>
                             <div class="col-sm-8">
-                                <p-dropdown [options]="proyectos" [(ngModel)]="selectedProyecto" optionLabel="idProyecto" placeholder="Seleccione proyecto FCI ..." (onChange)="seleccionarProyecto($event)"></p-dropdown>
+                                <p-dropdown [options]="proyectos" [(ngModel)]="selectedPro" optionLabel="idProyecto" optionValue="idProyecto" placeholder="Seleccione proyecto FCI ..." (onChange)="seleccionarProyecto($event)"></p-dropdown>
                             </div>
                         </div>
 
@@ -61,17 +61,20 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Propuesto:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'prodCientificaPropuesto.regional'> 
+                                    <p-inputNumber [(ngModel)]="prodCientificaPropuesto.regional" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'prodCientificaPropuesto.libros'> 
+                                    <p-inputNumber [(ngModel)]="prodCientificaPropuesto.libros" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'prodCientificaPropuesto.mundial'> 
+                                    <p-inputNumber [(ngModel)]="prodCientificaPropuesto.mundial" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>
@@ -80,17 +83,20 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Cumplido:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'prodCientificaCumplido.regional'> 
+                                    <p-inputNumber [(ngModel)]="prodCientificaCumplido.regional" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'prodCientificaCumplido.libros'> 
+                                    <p-inputNumber [(ngModel)]="prodCientificaCumplido.libros" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'prodCientificaCumplido.mundial'> 
+                                    <p-inputNumber [(ngModel)]="prodCientificaCumplido.mundial" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>
@@ -109,17 +115,20 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Propuesto:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'propIntelectualPropuesto.industrial'> 
+                                    <p-inputNumber [(ngModel)]="propIntelectualPropuesto.industrial" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'propIntelectualPropuesto.autor'> 
+                                    <p-inputNumber [(ngModel)]="propIntelectualPropuesto.autor" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber>  
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'propIntelectualPropuesto.vegetal'> 
+                                    <p-inputNumber [(ngModel)]="propIntelectualPropuesto.vegetal" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>
@@ -128,17 +137,20 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Cumplido:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'propIntelectualCumplido.industrial'> 
+                                    <p-inputNumber [(ngModel)]="propIntelectualCumplido.industrial" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'propIntelectualCumplido.autor'> 
+                                    <p-inputNumber [(ngModel)]="propIntelectualCumplido.autor" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'propIntelectualCumplido.vegetal'> 
+                                    <p-inputNumber [(ngModel)]="propIntelectualCumplido.vegetal" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>
@@ -156,12 +168,14 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Propuesto:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'conocimientoPropuesto.grupos'> 
+                                    <p-inputNumber [(ngModel)]="conocimientoPropuesto.grupos" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'conocimientoPropuesto.redes'> 
+                                    <p-inputNumber [(ngModel)]="conocimientoPropuesto.redes" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>
@@ -170,12 +184,14 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Cumplido:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'conocimientoCumplido.grupos'> 
+                                    <p-inputNumber [(ngModel)]="conocimientoCumplido.grupos" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'conocimientoCumplido.redes'> 
+                                    <p-inputNumber [(ngModel)]="conocimientoCumplido.redes" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>
@@ -194,17 +210,20 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Propuesto:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'piramCientificaPropuesto.grado'> 
+                                    <p-inputNumber [(ngModel)]="piramCientificaPropuesto.grado" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'piramCientificaPropuesto.postGrado'> 
+                                    <p-inputNumber [(ngModel)]="piramCientificaPropuesto.postGrado" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'piramCientificaPropuesto.doctorado'> 
+                                    <p-inputNumber [(ngModel)]="piramCientificaPropuesto.doctorado" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>
@@ -213,17 +232,20 @@
                             <label for="txtNombre" class="col-sm-3 col-form-label">Cumplido:</label>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'piramCientificaCumplido.grado'> 
+                                    <p-inputNumber [(ngModel)]="piramCientificaCumplido.grado" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'piramCientificaCumplido.postGrado'> 
+                                    <p-inputNumber [(ngModel)]="piramCientificaCumplido.postGrado" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'piramCientificaCumplido.doctorado'>
+                                    <p-inputNumber [(ngModel)]="piramCientificaCumplido.doctorado" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="40">
+                                    </p-inputNumber> 
                                 </div>
                             </div>
                         </div>

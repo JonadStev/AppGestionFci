@@ -27,12 +27,16 @@ import { LibrosComponent } from './componentes/acreditacion/libros/libros.compon
 import { CapituloLibrosComponent } from './componentes/acreditacion/capitulo-libros/capitulo-libros.component';
 import { ProductoComponent } from './componentes/gestion/producto/producto.component';
 import { AyudaComponent } from './componentes/ayuda/ayuda/ayuda.component';
+import { ProyectoFciComponent } from './componentes/reportes/proyecto-fci/proyecto-fci.component';
+import { ProduccionCientificaComponent } from './componentes/reportes/produccion-cientifica/produccion-cientifica.component';
+import { MonitoreoComponent } from './componentes/procesos/monitoreo/monitoreo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'gestion/docente', component: DocenteComponent },
   { path: 'matrizFci', component: MatrizProyectoFciComponent },
   { path: 'horasFci', component: HorasComponent },
+  { path: 'procesos/monitoreo', component: MonitoreoComponent },
   { path: 'gestion/lineas', component: LineasComponent },
   { path: 'gestion/sublineas', component: SublineasComponent },
   { path: 'gestion/carreras', component: CarrerasComponent },
@@ -46,6 +50,8 @@ const routes: Routes = [
   { path: 'acreditacion/ponencias', component: PonenciasComponent },
   { path: 'acreditacion/libro', component: LibrosComponent },
   { path: 'acreditacion/capitulo-libro', component: CapituloLibrosComponent },
+  { path: 'reportes/proyectos-fci', component: ProyectoFciComponent },
+  { path: 'reportes/produccion-cientifica', component: ProduccionCientificaComponent },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [ProdGuardService], data: { expectedRol: ['supervisor'] } },
   { path: 'cuentas/registro', component: RegistroComponent, canActivate: [ProdGuardService], data: { expectedRol: ['supervisor'] } },
   { path: 'cuentas/mantenimiento', component: MantenimientoComponent, canActivate: [ProdGuardService], data: { expectedRol: ['mantenimiento'] } },

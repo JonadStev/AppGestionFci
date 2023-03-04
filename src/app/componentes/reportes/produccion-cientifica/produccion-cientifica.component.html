@@ -1,0 +1,85 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p-card>
+                <ng-template pTemplate="header">
+                    <div class="pt-4 card-header">
+                        <h3>REPORTES ACREDITACIÓN</h3>
+                    </div>
+                </ng-template>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Tipo reporte:</label>
+                            <div class="col-sm-8">
+                                <p-dropdown [options]="tipos" [(ngModel)]="selectedTipoReporte" optionLabel="nombre" optionValue="nombre" placeholder="Seleccione el tipo de reporte ..."></p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Tipo publicación:</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-align-justify"></i>
+                                    </span>
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtTipoPublicacion'> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Código publicación:</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-align-justify"></i>
+                                    </span>
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'txtCodigoPublicacion'> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Fecha publicación :</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-calendar"></i>
+                                    </span>
+                                    <p-calendar inputId="basic" [(ngModel)]="fechaInicio"></p-calendar>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Docentes:</label>
+                            <div class="col-sm-8">
+                                <p-dropdown [options]="investigadores" [(ngModel)]="selectedDirector" optionLabel="nombreCompleto" optionValue="id" placeholder="Seleccione director ..."></p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-4">
+                        <button class="mr-sm-2 p-button-primary" pButton type="button" iconPos="left" label="Exportar a excel" (click)="exportExcel()"></button>
+                    </div>
+                </div>     
+            </p-card>
+        </div>
+    </div>
+</div>
+<p-toast position="top-center" key="myKey1"></p-toast>

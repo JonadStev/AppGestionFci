@@ -119,7 +119,7 @@ export class HorasComponent implements OnInit {
     this.selectedProyecto = event.data.proyecto;
     this.selectedDirector = event.data.director;
     this.detallesHoras = event.data.detalle;
-    console.log(event.data);
+    console.log(this.selectedProyecto);
   }
 
   onRowUnselectHoras(event: any) {
@@ -130,10 +130,6 @@ export class HorasComponent implements OnInit {
 
     this.selectedInvestigador = {};
     this.detalleHoras = {};
-
-    //this.bloque = {};
-    //this.selectedEstado = '';
-    //this.txtNombre = '';
   }
 
   limpiar() {
@@ -142,6 +138,8 @@ export class HorasComponent implements OnInit {
     this.selectedInvestigador = {};
     this.selectedProyecto = {};
     this.detallesHoras = [];
+    this.detalleHoras = {};
+    this.limparInvestigador();
   }
 
   validarCampos(): boolean {

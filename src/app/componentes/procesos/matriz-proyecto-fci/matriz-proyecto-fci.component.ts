@@ -70,6 +70,15 @@ export class MatrizProyectoFciComponent implements OnInit {
     this.proyecto.fechaFin = this.fechaFin.toLocaleDateString();
     this.proyecto.director = this.selectedDirector;
 
+    if (this.selectedInvestigadores.length < 1) {
+      this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Alerta', detail: 'Debe selecionar mínimo 1 investigador.' });
+      return;
+    }
+    if (this.selectedInvestigadores.length > 10) {
+      this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Alerta', detail: 'Debe selecionar máximo 10 investigadores.' });
+      return;
+    }
+
     if (!this.validarCampos()) {
       this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Alerta', detail: 'Los campos son obligatorios.' });
       return;

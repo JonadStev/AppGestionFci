@@ -31,6 +31,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { FileUploadModule } from 'primeng/fileupload';
 import { AccordionModule } from 'primeng/accordion';
 import { ListboxModule } from 'primeng/listbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { interceptorProvider } from './interceptors/prod-interceptor.service';
@@ -64,6 +65,9 @@ import { PronenciasComponent } from './componentes/procesos/acreditacion/ponenci
 import { LibroComponent } from './componentes/procesos/acreditacion/libro/libro/libro.component';
 import { CapituloLibroComponent } from './componentes/procesos/acreditacion/capituloLibro/capitulo-libro/capitulo-libro.component';
 import { ProductoComponent } from './componentes/gestion/producto/producto.component';
+import { ProyectoFciComponent } from './componentes/reportes/proyecto-fci/proyecto-fci.component';
+import { ProduccionCientificaComponent } from './componentes/reportes/produccion-cientifica/produccion-cientifica.component';
+import { MonitoreoComponent } from './componentes/procesos/monitoreo/monitoreo.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +101,10 @@ import { ProductoComponent } from './componentes/gestion/producto/producto.compo
     PronenciasComponent,
     LibroComponent,
     CapituloLibroComponent,
-    ProductoComponent
+    ProductoComponent,
+    ProyectoFciComponent,
+    ProduccionCientificaComponent,
+    MonitoreoComponent
   ],
   imports: [
     BrowserModule,
@@ -133,7 +140,8 @@ import { ProductoComponent } from './componentes/gestion/producto/producto.compo
     InputNumberModule,
     FileUploadModule,
     AccordionModule,
-    ListboxModule
+    ListboxModule,
+    RadioButtonModule
   ],
   providers: [interceptorProvider, MessageService],
   bootstrap: [AppComponent]

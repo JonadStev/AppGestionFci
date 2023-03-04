@@ -89,7 +89,7 @@
                         <div class="form-group row">
                             <label for="txtRol" class="col-sm-3 col-form-label">Seleccione investigadores:</label>
                             <div class="col-sm-8">
-                                <p-multiSelect [options]="investigadores" [(ngModel)]="selectedInvestigadores" optionLabel="nombre" defaultLabel="Seleccione los investigadores" (onChange)="seleccionInvestigadores($event)"></p-multiSelect>
+                                <p-multiSelect [options]="investigadores" [(ngModel)]="selectedInvestigadores" optionLabel="nombreCompleto" defaultLabel="Seleccione los investigadores" (onChange)="seleccionInvestigadores($event)"></p-multiSelect>
                             </div>
                         </div>
 

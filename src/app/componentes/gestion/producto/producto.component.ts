@@ -23,6 +23,7 @@ export class ProductoComponent implements OnInit {
 
   proyectos: ProyectoDto[] = [];
   selectedProyecto: ProyectoDto = {};
+  selectedPro: string = '';
 
   productos: ProductoDto[] = [];
 
@@ -39,6 +40,7 @@ export class ProductoComponent implements OnInit {
   fechaInicio: Date;
   fechaFin: Date;
 
+  proyectoSelected: ProyectoDto = {};
 
   constructor(private messageService: MessageService, private gestionService: GestionService, private procesoService: ProcesosService) { }
 
@@ -66,10 +68,19 @@ export class ProductoComponent implements OnInit {
   }
 
   seleccionarProyecto(event: any) {
-    this.producto.proyecto = this.selectedProyecto;
-    this.fechaInicio = this.convertStringToDate(event.value.fechaInicio);
-    this.fechaFin = this.convertStringToDate(event.value.fechaFin);
-    this.producto.nombreProyecto = this.selectedProyecto.nombre;
+    for (const d of (this.proyectos as any)) {
+      if (d.idProyecto === event.value) {
+        this.proyectoSelected = d;
+      }
+    }
+    this.producto.proyecto = this.proyectoSelected;
+    if (this.proyectoSelected.fechaInicio !== undefined) {
+      this.fechaInicio = this.convertStringToDate(this.proyectoSelected.fechaInicio);
+    }
+    if (this.proyectoSelected.fechaFin !== undefined) {
+      this.fechaFin = this.convertStringToDate(this.proyectoSelected.fechaFin);
+    }
+    this.producto.nombreProyecto = this.proyectoSelected.nombre;
     console.log(this.fechaInicio.toISOString());
   }
 
@@ -113,10 +124,12 @@ export class ProductoComponent implements OnInit {
   }
 
   onRowSelectProducto(event: any) {
+    this.selectedProyecto = {};
     this.producto = event.data;
     this.selectedEstado = event.data.estado;
     this.selectedDirector = event.data.director;
     this.selectedProyecto = event.data.proyecto;
+    this.selectedPro = event.data.proyecto.idProyecto;
     this.fechaInicio = this.convertStringToDate(event.data.proyecto.fechaInicio);
     this.fechaFin = this.convertStringToDate(event.data.proyecto.fechaFin);
     this.prodCientificaPropuesto = event.data.pcPropuesto;
@@ -127,6 +140,7 @@ export class ProductoComponent implements OnInit {
     this.conocimientoCumplido = event.data.conocimientoCumplido;
     this.piramCientificaPropuesto = event.data.piramidePropuesto;
     this.piramCientificaCumplido = event.data.piramideCumplido;
+    console.log(this.selectedProyecto);
   }
 
   onRowUnselectProducto(event: any) {
@@ -146,6 +160,7 @@ export class ProductoComponent implements OnInit {
     this.piramCientificaPropuesto = {};
     this.piramCientificaCumplido = {};
     this.selectedEstado = '';
+    this.selectedPro = '';
   }
 
   validarCampos(): boolean {
