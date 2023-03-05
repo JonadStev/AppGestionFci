@@ -54,18 +54,35 @@ export class ProcesosService {
     return this.http.get<ArticuloDto[]>(this.acreditacionUrl + 'articulo/all');
   }
 
-  //ARTICULOS
+  public guardarArticulo(articulo: ArticuloDto): Observable<ArticuloDto> {
+    return this.http.post<ArticuloDto>(this.acreditacionUrl + 'articulo/save', articulo);
+  }
+
+  //PONENCIAS
   public getPonencias(): Observable<PonenciaDto[]> {
     return this.http.get<PonenciaDto[]>(this.acreditacionUrl + 'ponencia/all');
   }
 
-  //ARTICULOS
+  public guardarPonencia(ponencia: PonenciaDto): Observable<PonenciaDto> {
+    return this.http.post<PonenciaDto>(this.acreditacionUrl + 'ponencia/save', ponencia);
+  }
+
+  //LIBROS
   public getLibros(): Observable<LibroDto[]> {
     return this.http.get<LibroDto[]>(this.acreditacionUrl + 'libro/all');
   }
 
+  public guardarLibro(libro: LibroDto): Observable<LibroDto> {
+    return this.http.post<LibroDto>(this.acreditacionUrl + 'libro/save', libro);
+  }
+
+  //CAPITULOS
   public getCapitulosLibro(): Observable<CapituloDto[]> {
     return this.http.get<CapituloDto[]>(this.acreditacionUrl + 'capitulo-libro/all');
+  }
+
+  public guardarCapitulo(capitulo: CapituloDto): Observable<CapituloDto> {
+    return this.http.post<CapituloDto>(this.acreditacionUrl + 'capitulo-libro/save', capitulo);
   }
 
 
@@ -89,7 +106,7 @@ export class ProcesosService {
     return this.http.get<LibroDto[]>(this.acreditacionUrl + 'libro/' + 'allByfilter?tipoPublicacion=' + tipo + '&codigoPublicacion=' + codigo + '&fechaPublicacion=' + fecha + '&docente=' + docente);
   }
 
-  //Reportes libros
+  //Reportes CAPITULOS
   public getCapitulosByFilter(tipo: string, codigo: string, fecha: string, docente: string): Observable<CapituloDto[]> {
     return this.http.get<CapituloDto[]>(this.acreditacionUrl + 'capitulo/' + 'allByfilter?tipoPublicacion=' + tipo + '&codigoPublicacion=' + codigo + '&fechaPublicacion=' + fecha + '&docente=' + docente);
   }

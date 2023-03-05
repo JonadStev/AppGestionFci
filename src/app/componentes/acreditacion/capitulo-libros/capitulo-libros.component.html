@@ -35,6 +35,29 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Tipo publicación:</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup">
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'capitulo.tipoPublicacion'> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group row">
+                            <label for="txtNombre" class="col-sm-3 col-form-label">Código publicación:</label>
+                            <div class="col-sm-8">
+                                <div class="p-inputgroup">
+                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'capitulo.codigoPublicacion'> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group row">
                             <label for="txtNombre" class="col-sm-3 col-form-label">Título libro:</label>
                             <div class="col-sm-8">
                                 <div class="p-inputgroup">
@@ -83,8 +106,11 @@
                         <div class="form-group row">
                             <label for="txtNombre" class="col-sm-3 col-form-label">Fecha publicación:</label>
                             <div class="col-sm-8">
-                                <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'capitulo.fechaPublicacion'> 
+                                <div class="p-inputgroup" style="width: 75%;">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-calendar"></i>
+                                    </span>
+                                    <p-calendar inputId="basic" [(ngModel)]="fechaPublicacion"></p-calendar>
                                 </div>
                             </div>
                         </div>
@@ -104,11 +130,9 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group row">
-                        <label for="txtNombre" class="col-sm-3 col-form-label">Campo detallado:</label>
+                            <label for="txtRol" class="col-sm-3 col-form-label">Campo detallado:</label>
                             <div class="col-sm-8">
-                                <div class="p-inputgroup">
-                                    <input type="text" id="txtNombre" pInputText [(ngModel)] = 'capitulo.campoDetallado'> 
-                                </div>
+                                <p-dropdown [options]="unescos" [(ngModel)]="selectedUnesco" optionLabel="nombre" optionValue="nombre" placeholder="Seleccione código unesco..." (onChange)="llenarSublinea()"></p-dropdown>
                             </div>
                         </div>
                     </div>
@@ -224,7 +248,7 @@
                     <div class="col-12">
                         <div class="form-group row">
                             <div class="col-sm-8">
-                                <button class="mr-sm-2 p-button-primary" pButton type="button" iconPos="left" label="Guardar articulo" (click)="guardarEstado()"></button>
+                                <button class="mr-sm-2 p-button-primary" pButton type="button" iconPos="left" label="Guardar capítulo" (click)="guardarEstado()"></button>
                             </div>
                         </div>
                     </div>
@@ -232,7 +256,7 @@
                 
                 <div class="row">
                     <div class="col-12">
-                        <h4>Listado de articulos</h4>
+                        <h4>Listado de capítulos</h4>
                     </div>
                 </div>
 
