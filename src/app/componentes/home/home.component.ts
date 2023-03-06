@@ -9,9 +9,9 @@ export interface ImagesBanner {
 }
 
 const ELEMENT_DATA: ImagesBanner[] = [
-  { previewImageSrc: 'assets/banner1.jpg', thumbnailImageSrc: 'assets/banner1.jpg', alt: 'Banner 1', title: 'Banner 1' },
-  { previewImageSrc: 'assets/banner2.png', thumbnailImageSrc: 'assets/banner2.png', alt: 'Banner 1', title: 'Banner 1' },
-  { previewImageSrc: 'assets/banner3.jpg', thumbnailImageSrc: 'assets/banner3.jpg', alt: 'Banner 1', title: 'Banner 1' },
+  { previewImageSrc: 'assets/banner1.jpeg', thumbnailImageSrc: 'assets/banner1.jpg', alt: 'Banner 1', title: 'Banner 1' },
+  { previewImageSrc: 'assets/banner2.jpeg', thumbnailImageSrc: 'assets/banner2.png', alt: 'Banner 1', title: 'Banner 1' },
+  { previewImageSrc: 'assets/banner3.jpeg', thumbnailImageSrc: 'assets/banner3.jpg', alt: 'Banner 1', title: 'Banner 1' },
 ];
 
 @Component({

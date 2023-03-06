@@ -33,6 +33,8 @@ export class MonitoreoComponent implements OnInit {
 
   txtAutoevaluacion: string = '';
   txtInforme: string = ''
+  presupuestoInicial: number = 0;
+  presupuestoFinal: number = 0;
 
   monitoreo: MonitoreoDto = {};
   monitoreos: MonitoreoDto[] = [];
@@ -70,6 +72,17 @@ export class MonitoreoComponent implements OnInit {
       return;
     }
 
+    if (this.presupuestoInicial === 0 || this.presupuestoInicial === null || this.presupuestoInicial === undefined) {
+      this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Alerta', detail: 'Debe llenar los datos del presupuesto inicial.' });
+      return;
+    }
+
+    if (this.presupuestoFinal === 0 || this.presupuestoFinal === null || this.presupuestoFinal === undefined) {
+      this.messageService.add({ key: 'myKey1', severity: 'error', summary: 'Alerta', detail: 'Debe llenar los datos del presupuesto final.' });
+      return;
+    }
+
+
     for (const d of (this.proyectos as any)) {
       if (d.idProyecto === this.selectedPro) {
         this.selectedProyecto = d;
@@ -87,6 +100,8 @@ export class MonitoreoComponent implements OnInit {
     this.monitoreo.proyecto = this.selectedProyecto;
     this.monitoreo.autoevaluacion = this.txtAutoevaluacion;
     this.monitoreo.informe = this.txtInforme;
+    this.monitoreo.presupuestoInicial = this.presupuestoInicial;
+    this.monitoreo.presupuestoFinal = this.presupuestoFinal;
 
     console.log(this.monitoreo);
     this.procesosService.guardarMonitoreo(this.monitoreo).subscribe(data => {
@@ -102,6 +117,8 @@ export class MonitoreoComponent implements OnInit {
     this.monitoreo = event.data;
     this.txtAutoevaluacion = event.data.autoevaluacion;
     this.txtInforme = event.data.informe;
+    this.presupuestoInicial = event.data.presupuestoInicial
+    this.presupuestoFinal = event.data.presupuestoFinal
     this.selectedPro = event.data.proyecto.idProyecto;
   }
 
@@ -112,6 +129,8 @@ export class MonitoreoComponent implements OnInit {
   limpar() {
     this.monitoreo = {};
     this.txtAutoevaluacion = '';
+    this.presupuestoInicial = 0;
+    this.presupuestoFinal = 0;
     this.txtInforme = '';
     this.selectedPro = '';
     this.selectedProyecto = {};

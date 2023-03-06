@@ -5,4 +5,6 @@ export interface MonitoreoDto {
     proyecto?: ProyectoDto;
     autoevaluacion?: string;
     informe?: string;
+    presupuestoInicial?: number;
+    presupuestoFinal?: number;
 }

@@ -18,10 +18,17 @@ export class ProdGuardService implements CanActivate {
 
     const expectedRol = route.data['expectedRol'];
 
+    if (!this.tokenService.isLogger()) {
+      window.location.replace('/');
+      return false;
+    }
+
     if (this.tokenService.isAdmin()) {
       this.realRol = 'gestor';
     } else if (this.tokenService.isPerfilDirector()) {
       this.realRol = 'director';
+    } else if (this.tokenService.isPerfilSecretario()) {
+      this.realRol = 'secretario';
     } else {
       this.realRol = 'investigador';
     }

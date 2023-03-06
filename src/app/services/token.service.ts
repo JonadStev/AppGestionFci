@@ -62,9 +62,9 @@ export class TokenService {
       const payloadDecoded = atob(payload);
       const values = JSON.parse(payloadDecoded);
       const roles = values.roles;
-      if (roles.indexOf('ROLE_GESTOR') < 0) // No es admin
+      if (roles.indexOf('ROLE_GESTOR') < 0)
         return false;
-      return true; // Es admin
+      return true;
     }
   }
 
@@ -77,9 +77,24 @@ export class TokenService {
       const payloadDecoded = atob(payload);
       const values = JSON.parse(payloadDecoded);
       const roles = values.roles;
-      if (roles.indexOf('ROLE_DIRECTOR') < 0) // No es un rol de mantenimiento ROLE_MANTENIMIENTO
+      if (roles.indexOf('ROLE_DIRECTOR') < 0)
         return false;
-      return true; // Es es rol de mantenimiento
+      return true;
+    }
+  }
+
+  public isPerfilSecretario(): boolean {
+    if (!this.isLogger)
+      return false;
+    else {
+      const token = this.getToken();
+      const payload = token?.split('.')[1] as string;
+      const payloadDecoded = atob(payload);
+      const values = JSON.parse(payloadDecoded);
+      const roles = values.roles;
+      if (roles.indexOf('ROLE_SECRETARIO') < 0)
+        return false;
+      return true;
     }
   }
 
