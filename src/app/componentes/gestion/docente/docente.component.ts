@@ -16,7 +16,7 @@ export class DocenteComponent implements OnInit {
   selectedEstado?: string = '';
 
   //roles: any[] = [{ id: 1, nombre: "admin" }, { id: 2, nombre: "user" }, { id: 2, nombre: "delivery" }];
-  roles: any[] = [{ id: 'gestor', nombre: "GESTOR" }, { id: 'director', nombre: "DIRECTOR" }, { id: 'investigador', nombre: "INVESTIGADOR" }];
+  roles: any[] = [{ id: 'gestor', nombre: "GESTOR" }, { id: 'director', nombre: "DIRECTOR" }, { id: 'investigador', nombre: "INVESTIGADOR" }, { id: 'secretario', nombre: "SECRETARIO" }];
   selectedRol?: string;
 
   usuarioDocente: UsuarioDocenteDto = {};
@@ -65,11 +65,13 @@ export class DocenteComponent implements OnInit {
     this.usuarioDocente.estado = this.selectedEstado;
     let roles: any = [];
     if (this.selectedRol === 'GESTOR') {
-      roles.push({ id: 1, rolNombre: 'ROLE_GESTOR' }, { id: 2, rolNombre: 'ROLE_DIRECTOR' }, { id: 3, rolNombre: 'ROLE_INVESTIGADOR' });
+      roles.push({ id: 1, rolNombre: 'ROLE_GESTOR' }, { id: 2, rolNombre: 'ROLE_DIRECTOR' }, { id: 3, rolNombre: 'ROLE_INVESTIGADOR' }, { id: 4, rolNombre: 'ROLE_SECRETARIO' });
     } else if (this.selectedRol === 'DIRECTOR') {
       roles.push({ id: 2, rolNombre: 'ROLE_DIRECTOR' });
-    } else {
+    } else if (this.selectedRol === 'INVESTIGADOR') {
       roles.push({ id: 3, rolNombre: 'ROLE_INVESTIGADOR' });
+    } else {
+      roles.push({ id: 4, rolNombre: 'ROLE_SECRETARIO' });
     }
     this.usuarioDocente.roles = roles;
 
@@ -98,8 +100,10 @@ export class DocenteComponent implements OnInit {
       for (const d of (this.usuarioDocente.roles as any)) {
         if (d.rolNombre === "ROLE_DIRECTOR") {
           this.selectedRol = 'DIRECTOR';
-        } else {
+        } else if (d.rolNombre === "ROLE_INVESTIGADOR") {
           this.selectedRol = 'INVESTIGADOR';
+        } else {
+          this.selectedRol = 'SECRETARIO';
         }
       }
     }
